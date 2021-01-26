@@ -1,0 +1,23 @@
+Plan for Medi-Advices
+
+The architects are planning to build an Infrastructure based on the Pillars of Well- Architected Framework:
+-	Operational Excellence - business value and continually improve processes and procedures.
+-	Security – protect information, system, assets.
+-	Reliability – recover from failures, meet demand.
+-	Performance Efficiency- ability to work efficiently meeting system requirements.
+-	Cost optimization - avoid unnecessary cost.
+
+The plan is to use a wide range of AWS products in a highly available platform that supports Online Appointments, remote Consultation and diagnosis, prescriptions, transfer, and payment services: 
+
+-	Amazon EC2 in Auto Scaling groups for its web application.
+-	AWS IAM is a foundation Key Service, used to secure access to the resources.
+-	Amazon Virtual Private Cloud which is a logically isolated section of the AWS cloud, and is where Medi-Advices can launch AWS resources in a Virtual Network.
+-	Amazon RDS with MySQL for storing data.
+-	Amazon S3 highly storage for backups and storing the uploaded files. 
+-	Amazon S3 Batch for the workflows of services.
+-	AWS Lambda to extend other AWS services with custom logic.
+-	Amazon ElastiCache to scales performance of the web application.
+-	Elastic Load Balancer to distribute traffic across applications.
+-	Amazon CloudWatch for monitoring the system and maintain the logs and notify other services and issues in the system.
+-	Amazon Route 53 to register and manage the website name of the Company, check how health the resources are and route internet traffic to the Company’s domain.
+-	The plan is to use two privates’ subnets that the database and the application server will use it, and to use the public subnet for the web server. 

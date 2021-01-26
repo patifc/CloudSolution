@@ -1,0 +1,35 @@
+Comparing Current environment with the new solutions
+
+Single point of failure:
+
+The current infrastructure that Medi-Advices, is deployed in a server hosting based solely in Dublin City Centre. The Company complains that the architecture is continuously over-provisioned to try to handle growth and performance issues.
+The new solution proposed in this document takes into consideration that Business applications need protection against disruption scenarios. Because Medi-Advices has only one data center and it is distant from the users in the US, the system is exposed to a single point failure that will probably lead to data loss or a very cost data recovery process. Even a short interruption in one data center would make the users lose connection with the system.
+
+The new proposal will remove Ingle points of failure using two Availability Zones that consist of multiple data centers, providing inexpensive, redundant, low-latency network connectivity.
+ The use of services such as Amazon Route 53 will route traffic to healthy endpoints and replacing unhealthy nodes automatically using Auto Scaling guarantees high availability to the application.
+AWS Auto Scaling also ensures that the correct number of EC2 instances are available to run the application, initiating or terminating instances based on the demand. (Architecting for the Cloud, 2018, pg27).
+
+Database:
+The current environment uses Microsoft Windows servers to host their web and application tiers with Microsoft SQL Server Standard Edition backend databases.
+
+With the current Database, Medi-Advice there is no capacity to scale beyond the restrictions of a single instance, the current database is not designed for the workloads that the application has or could have in the future.
+Because the application for Medi-Advices must deal with large files it will be more efficient to store the actual files in Amazon S3 and only the metadata for the files in the database, that in this case, it will be RDS.
+RDS can be used with CloudWatch to set up notifications when usage patterns of the application changes or when it approaches the storage capacity of the deployment, maintaining the system performance and availability. It enables automatic backups and performs an automatic failover without the need for manual administrative intervention.
+(Best practices for Amazon RDS - Amazon Relational Database Service, 2021)
+
+Optimizing Costs
+
+With the infrastructure of Medi-Advices moving into the cloud the Company will be able to reduce capital expenses and drive savings because of AWS economies of scale.
+One of the advantages of the new infrastructure is the elasticity. Scale-up and down reduces the spending when the application does not need that capacity anymore, reducing the cost of running applications.
+The use of CloudWatch Alarms to monitor the charges and create budget alarms will help to control and make the application cost-effective. (Cost Optimization with AWS Architecture, Tools, and Best Practices, 2016, pg15).
+The variety of these purchased options will bring to Medi-Advice maximum of flexibility because the company will pay for only what they are using, during the period that they are using it. (Architecting for the Cloud, 2018, pg27).
+To achieve cost optimization the architectures advice continuous revision and assessment of the infrastructure the reason for that is that Amazon continuously optimize their services, so Medi-Advices could assess new products in the future.
+
+
+
+
+
+Conclusion
+
+This document is a propose for Medi-Advices to build an infrastructure designed to be secure, high-performing, resilient, and efficient. Medi-Advices can optimize their services by focus their time on the business instead worrying with the cloud infrastructure. 
+The company can explore additional AWS services in the future to increase functionality as needed. 

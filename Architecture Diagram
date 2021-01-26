@@ -1,1 +1,32 @@
+Explaining the Diagram:
+
+Amazon VPC to isolate parts of the infrastructure using subnets, security groups, and routing controls.
+There are two availability zones to provide additional scalability and reliability and the US, and Europe can have access to it.
+When we distribute Memcached over multiple Availability Zones, it helps protect the infrastructure from catastrophic failures, such as power loss within an Availability Zone. 
+
+Amazon ElastiCache can be used in multiple AWS Regions we can launch in Europe and the US close to Medi-Advices customers to meet legal requirements. Launching nodes across multiple Zones allow the company to achieve the greatest possible fault tolerance.
+
+Elastic Load Balancing automatically distributes incoming traffic across multiple Availability Zones and ensures only healthy targets receive traffic. The traffic is then passed to ElastiCache and RDS.
+
+RDS dataset is used to store data, and in the case of Medi-Advices, it is going to be used as a database. RDS is known as highly reliable, and easy to backup.
+
+CloudWatch will be used to give notifications when a goal has been achieved, so Medi-Advices will have access to how the system is performing, and in case of an issue, the company will be able to act quickly to resolve it.
+(Amazon CloudWatch - Application and Infrastructure Monitoring, 2021)
+
+AWS Lambda is going to be used because Medi-Advices has several services or do custom process data flows through services. Lambda will automatically be scaling and provide capacity for the workflow. Medi-Advices will pay only for the time that the code is running, making this service cost-optimized.
+
+ To help Medi-Advices to automate the actual process they have for remote consultation, online appointments, remote diagnosis, electronic prescription transfer, and payment services we would use AWS S3 Batch.
+AWS S3 Batch works in a queue format, that the company will specify the parameters, and when multiple jobs are added to the system S3 Batch Operations use the parameters to prioritize and define which is the most critical work that will happen first. 
+If no critical work is identified the schedules will run in the order that they have been submitted. After the work has been executed it will be stored in S3.
+(Amazon S3 Batch Operations - AWS, 2021)
+
+Amazon S3 has no limits on the amount of storage and provides to the customers different levels of durability, availability, and pricing. It provides 99.999 durability%.
+(Cost Optimization with AWS Architecture, Tools, and Best Practices, 2016, pg12).
+To Medi-Advices access all AWS services proposed securely we advise IAM, with IAM the company will be able to create and manage AWS groups and users allowing or denying their access to the system.
+ Cording to the article on the website BeyondTrust (2021) the goal for IAM is to reduce the probability and effect of data violations and ensures that only authorized users have access.
+(What is Identity and Access Management and Why is it a Vital IT Security Layer | BeyondTrust, 2021).
+
+AWS Route 53
+In the section Proof-of Concept Solution in this document you can find a detailed explanation about Route 53 and how it can make Medi-Advices application Highly available cross-region and recover traffic in an event such as natural disasters.
+
 
